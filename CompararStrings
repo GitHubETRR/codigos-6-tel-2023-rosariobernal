@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define largo 20
+int compareStrings(char*, char*);
+int main(){
+    int comparador;
+    char str1[largo], str2[largo];
+    printf("Hola, ingrese el primer string:\n");
+    scanf("%s",str1);
+    printf("Ahora ingrese el segundo string porfavor:\n");
+    scanf("%s", str2);
+    comparador=compareStrings(str1, str2);
+    if (comparador==0){
+        printf("Las cadenas son iguales.\n");
+    }else{
+        printf("Las cadenas son distintas.\n");
+    }
+    return 0;
+}
+int compareStrings(char* str1, char* str2){
+    int b;
+    for(b=0;b<largo;b++){
+        if((*(str1+b))!=(*(str2+b))){
+            return 1;
+        }
+    }
+    return 0;
+}
