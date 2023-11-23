@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void pvalor(char var);
+void p_referencia(char* variable);
+
+int main(void){
+    char porValor;
+    char porReferencia;
+    printf("Hola ingrese el valor de numero al que desee realizar el pasaje por valor: ");
+    scanf("%c",&porValor);
+    porReferencia=porValor;
+    pvalor(porValor);
+    printf("La variable por valor en main vale: %c\n",porValor);
+    p_referencia(&porReferencia);
+    printf("La variable por referencia en main vale: %c\n",porReferencia);
+    return 0;
+}
+
+void pvalor(char var){
+    var++;
+    printf("Mi variable evaluada en pvalor vale: %c\n",var);
+}
+ void p_referencia(char*variable){
+    (*variable)++;
+    printf("Mi variable evaluada en p_referencia vale: %s\n",variable);
+ }
