@@ -1,0 +1,126 @@
+#include <iostream>
+using namespace std;
+
+class TiendaApple{
+    public:
+        float precio;
+};
+
+class iPhone : public TiendaApple{
+public:
+    void Modelos();
+    void Almacenamiento();
+    void Colores();
+};
+
+void iPhone :: Almacenamiento(){
+        cout << "Opciones de almacenamiento:\n";
+        cout << "1. 256GB\n"; // +$45
+        cout << "2. 512GB\n"; // +$95
+        cout << "3. 64GB\n"; // +$25
+    }
+
+void iPhone :: Colores(){
+        cout << "Opciones de color:\n";
+        cout << "1. Silver\n";
+        cout << "2. Rose Gold\n";
+        cout << "3. Lila\n";
+        cout << "4. Blanco\n";
+    }
+    
+void iPhone::Modelos(){
+        cout << "Modelos disponibles:\n";
+        cout << "1. iPhone 12 Mini\n"; // $199
+        cout << "2. iPhone 13 Pro\n"; // $299
+        cout << "3. iPhone 14 Pro Max\n"; // $399
+    }
+int main() {
+    int choice;
+    int modelChoice = 0;
+    int AlmaceChoice = 0;
+    int coloresChoice = 0;
+    iPhone iphone;
+    cout << "Bienvenido a la página virtual de Apple\n";
+    
+    do {
+        cout << "Ingrese 1 para ver los modelos disponibles o 0 para terminar el programa: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            iphone.Modelos();
+            cout << "Seleccione un modelo: ";
+            cin >> modelChoice;
+
+            if (modelChoice >= 1 && modelChoice <= 3) {
+                iphone.Almacenamiento();
+                cout << "Seleccione una opción de almacenamiento: ";
+                cin >> AlmaceChoice;
+
+                if (AlmaceChoice >= 1 && AlmaceChoice <= 3) {
+                    iphone.Colores();
+                    cout << "Seleccione un color: ";
+                    cin >> coloresChoice;
+
+                    if (coloresChoice >= 1 && coloresChoice <= 4) {
+                        int decision;
+                        cout << "Si desea terminar su compra, ingrese 0. Ingrese 1 para seguir comprando: ";
+                        cin >> decision;
+
+                        if (decision == 0) {
+                            cout << "Su compra seleccionada fue la siguiente:\n";
+                            cout << "Modelo: ";
+                            if (modelChoice == 1) {
+                                cout << "iPhone 12 Mini\n";
+                            } else if (modelChoice == 2) {
+                                cout << "iPhone 13 Pro\n";
+                            } else if (modelChoice == 3) {
+                                cout << "iPhone 14 Pro Max\n";
+                            }
+
+                            cout << "Almacenamiento: ";
+                            if (AlmaceChoice == 1) {
+                                cout << "256GB\n";
+                            } else if (AlmaceChoice == 2) {
+                                cout << "512GB\n";
+                            } else if (AlmaceChoice == 3) {
+                                cout << "64GB\n";
+                            }
+
+                            cout << "Color: ";
+                            if (coloresChoice == 1) {
+                                cout << "Silver\n";
+                            } else if (coloresChoice == 2) {
+                                cout << "Rose Gold\n";
+                            } else if (coloresChoice == 3) {
+                                cout << "Lila\n";
+                            } else if (coloresChoice == 4) {
+                                cout << "Blanco\n";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Precio segun modelos
+        if (modelChoice == 1){
+            iphone.precio = 199;
+        } else if (modelChoice == 2){
+            iphone.precio = 299;
+        } else if (modelChoice == 3){
+         iphone.precio = 399;
+        }
+        // precio sumado de Almacenamiento
+        if (AlmaceChoice == 1){
+            iphone.precio += 45;
+        }else if (AlmaceChoice == 2){
+            iphone.precio += 95;
+        }else if (AlmaceChoice == 3){
+            iphone.precio += 25;
+        }
+        cout << "El precio final es de: $ " << iphone.precio << endl;
+        cout << "Gracias por visitar la página de Apple.\n";
+        break;    
+    } while (choice != 0);
+return 0;
+}
+
