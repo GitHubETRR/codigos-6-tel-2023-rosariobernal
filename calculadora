@@ -1,0 +1,16 @@
+import math
+
+opcion = input("¿Desea calcular el área de un cuadrado o una circunferencia? (cuadrado/circunferencia): ").lower()
+
+if opcion == "cuadrado":
+    lado = int(input("Ingrese la longitud del lado del cuadrado: "))
+    area = lado ** 2
+    print(f"El área del cuadrado es: {area}")
+
+if opcion == "circunferencia":
+    radio = int(input("Ingrese el radio de la circunferencia: "))
+    area = math.pi * (radio ** 2)
+    print(f"El área de la circunferencia es: {area}")
+
+if opcion != "cuadrado" and opcion != "circunferencia":
+    print("Opción no válida. Por favor, elija cuadrado o circunferencia.")
